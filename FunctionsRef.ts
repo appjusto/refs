@@ -29,7 +29,7 @@ import {
 } from '@appjusto/types/payment/iugu';
 import { Functions, httpsCallable } from 'firebase/functions';
 
-export default class FunctionsRef {
+export class FunctionsRef {
   constructor(private functions: Functions) {}
 
   getVerifyProfileCallable = () =>

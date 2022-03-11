@@ -1,4 +1,4 @@
-export default class StoragePaths {
+export class StoragePaths {
   constructor() {}
 
   getCourierSelfiePath = (courierId: string, size?: string) =>

@@ -1,6 +1,6 @@
 import { collection, doc, Firestore } from 'firebase/firestore';
 
-export default class FirestoreRefs {
+export class FirestoreRefs {
   constructor(private firestore: Firestore) {}
 
   // recommendations
