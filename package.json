@@ -1,0 +1,24 @@
+{
+  "name": "@appjusto/firebase-refs",
+  "version": "0.1.0",
+  "description": "References to Firestore collections and documents, Firebase Functions and Storage paths.",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node lib/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "git push && git push --tags && git fetch"
+  },
+  "author": "AppJusto",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@appjusto/types": "^5.1.1",
+    "firebase": "^9.6.8"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
