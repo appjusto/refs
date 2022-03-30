@@ -1,20 +1,20 @@
-import { collection, doc, Firestore } from 'firebase/firestore';
+import { collection, doc, getFirestore } from 'firebase/firestore';
 
 export class FirestoreRefs {
-  constructor(private firestore: Firestore) {}
+  constructor() {}
 
   // recommendations
-  getRecommendationsRef = () => collection(this.firestore, 'recommendations');
+  getRecommendationsRef = () => collection(getFirestore(), 'recommendations');
 
   // withdraws
-  getWithdrawsRef = () => collection(this.firestore, 'withdraws');
+  getWithdrawsRef = () => collection(getFirestore(), 'withdraws');
 
   // reviews
-  getReviewsRef = () => collection(this.firestore, 'reviews');
-  getReviewRef = (id: string) => doc(collection(this.firestore, 'reviews'), id);
+  getReviewsRef = () => collection(getFirestore(), 'reviews');
+  getReviewRef = (id: string) => doc(collection(getFirestore(), 'reviews'), id);
 
   // platform
-  getPlatformRef = () => collection(this.firestore, 'platform');
+  getPlatformRef = () => collection(getFirestore(), 'platform');
 
   // platform docs
   getPlatformParamsRef = () => doc(this.getPlatformRef(), 'params');
@@ -40,7 +40,7 @@ export class FirestoreRefs {
     collection(this.getPlatformLogsRef(), 'logins');
 
   // businesses
-  getBusinessesRef = () => collection(this.firestore, 'businesses');
+  getBusinessesRef = () => collection(getFirestore(), 'businesses');
   getBusinessRef = (id: string) => doc(this.getBusinessesRef(), id);
 
   // business menu
@@ -68,12 +68,12 @@ export class FirestoreRefs {
   ) => doc(collection(this.getBusinessRef(businessId), 'menu'), menuId);
 
   // managers
-  getManagersRef = () => collection(this.firestore, 'managers');
+  getManagersRef = () => collection(getFirestore(), 'managers');
   getManagerRef = (managerId: string) =>
-    doc(collection(this.firestore, 'managers'), managerId);
+    doc(collection(getFirestore(), 'managers'), managerId);
 
   // orders
-  getOrdersRef = () => collection(this.firestore, 'orders');
+  getOrdersRef = () => collection(getFirestore(), 'orders');
   getOrderRef = (id: string) => doc(this.getOrdersRef(), id);
   getOrderChatRef = (id: string) =>
     collection(doc(this.getOrdersRef(), id), 'chat');
@@ -90,21 +90,21 @@ export class FirestoreRefs {
   getOrderLogsRef = (id: string) => collection(this.getOrderRef(id), 'logs');
 
   // chats
-  getChatsRef = () => collection(this.firestore, 'chats');
+  getChatsRef = () => collection(getFirestore(), 'chats');
   getChatMessageRef = (messageId: string) => doc(this.getChatsRef(), messageId);
 
   // consumers
-  getConsumersRef = () => collection(this.firestore, 'consumers');
+  getConsumersRef = () => collection(getFirestore(), 'consumers');
   getConsumerRef = (id: string) => doc(this.getConsumersRef(), id);
 
   // users
-  getUsersRef = () => collection(this.firestore, 'users');
+  getUsersRef = () => collection(getFirestore(), 'users');
   getUsersSubcollectionsRef = () => doc(this.getUsersRef(), 'subcollections');
   getUsersChangesRef = () =>
     collection(this.getUsersSubcollectionsRef(), 'changes');
 
   // couriers
-  getCouriersRef = () => collection(this.firestore, 'couriers');
+  getCouriersRef = () => collection(getFirestore(), 'couriers');
   getCourierRef = (id: string) => doc(this.getCouriersRef(), id);
   getCourierReviewsRef = (id: string) =>
     collection(this.getCourierRef(id), 'reviews');
@@ -114,7 +114,7 @@ export class FirestoreRefs {
     doc(this.getCourierRequestsRef(courierId), orderId);
 
   // fleets
-  getFleetsRef = () => collection(this.firestore, 'fleets');
+  getFleetsRef = () => collection(getFirestore(), 'fleets');
   getFleetRef = (id: string) => doc(this.getFleetsRef(), id);
   getAppJustoFleetRef = () => this.getFleetRef('appjusto');
 }
