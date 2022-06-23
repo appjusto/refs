@@ -89,6 +89,12 @@ export class FirestoreRefs {
     doc(this.getOrderPrivateRef(id), 'confirmation');
   getOrderLogsRef = (id: string) => collection(this.getOrderRef(id), 'logs');
 
+  // invoices
+  getInvoicesRef = () => collection(getFirestore(), 'invoices');
+  getInvoiceRef = (id: string) => doc(this.getInvoicesRef(), id);
+  getInvoiceLogsRef = (id: string) =>
+    collection(this.getInvoiceRef(id), 'changes');
+
   // chats
   getChatsRef = () => collection(getFirestore(), 'chats');
   getChatMessageRef = (messageId: string) => doc(this.getChatsRef(), messageId);
