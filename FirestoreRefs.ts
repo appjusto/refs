@@ -119,6 +119,10 @@ export class FirestoreRefs {
   getCourierOrderRequestsRef = (courierId: string, orderId: string) =>
     doc(this.getCourierRequestsRef(courierId), orderId);
 
+  // ledger
+  getLedgerRef = () => collection(getFirestore(), 'ledger');
+  getLedgerDocRef = (id: string) => doc(this.getLedgerRef(), id);
+
   // fleets
   getFleetsRef = () => collection(getFirestore(), 'fleets');
   getFleetRef = (id: string) => doc(this.getFleetsRef(), id);
