@@ -1,6 +1,6 @@
 {
   "name": "@appjusto/firebase-refs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "References to Firestore collections and documents, Firebase Functions and Storage paths.",
   "main": "lib/index.js",
   "directories": {
