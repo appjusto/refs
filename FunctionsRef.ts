@@ -6,6 +6,7 @@ import {
   Fare,
   FetchAccountInformationPayload,
   FetchAccountInformationResponse,
+  FetchAdvanceByAmountSimulationPayload,
   FetchAdvanceSimulationPayload,
   FetchReceivablesPayload,
   GetCancellationInfoPayload,
@@ -52,7 +53,7 @@ export class FunctionsRef {
     >(getFunctions(), 'fetchAdvanceSimulation');
   getFetchAdvanceByAmountSimulationCallable = () =>
     httpsCallable<
-      FetchAdvanceSimulationPayload,
+      FetchAdvanceByAmountSimulationPayload,
       IuguMarketplaceAccountAdvanceByAmountResponse
     >(getFunctions(), 'fetchAdvanceByAmountSimulation');
   getRequestWithdrawCallable = () =>
