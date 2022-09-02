@@ -23,6 +23,7 @@ import {
   UpdateOrderPayload,
 } from '@appjusto/types';
 import {
+  IuguMarketplaceAccountAdvanceByAmountResponse,
   IuguMarketplaceAccountAdvanceSimulation,
   IuguMarketplaceAccountReceivables,
   IuguMarketplaceAccountWithdrawResponse,
@@ -49,6 +50,11 @@ export class FunctionsRef {
       FetchAdvanceSimulationPayload,
       IuguMarketplaceAccountAdvanceSimulation
     >(getFunctions(), 'fetchAdvanceSimulation');
+  getFetchAdvanceByAmountSimulationCallable = () =>
+    httpsCallable<
+      FetchAdvanceSimulationPayload,
+      IuguMarketplaceAccountAdvanceByAmountResponse
+    >(getFunctions(), 'fetchAdvanceByAmountSimulation');
   getRequestWithdrawCallable = () =>
     httpsCallable<
       RequestWithdrawPayload,
@@ -56,6 +62,8 @@ export class FunctionsRef {
     >(getFunctions(), 'requestWithdraw');
   getAdvanceReceivablesCallable = () =>
     httpsCallable(getFunctions(), 'advanceReceivables');
+  getAdvanceReceivablesByAmountCallable = () =>
+    httpsCallable(getFunctions(), 'advanceReceivablesByAmount');
   getDeleteAccountCallable = () =>
     httpsCallable(getFunctions(), 'deleteAccount');
   getServerTimeCallable = () => httpsCallable(getFunctions(), 'getServerTime');
